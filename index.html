@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViRecrut - Inscription</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bienvenue sur ViRecrut</h1>
+        <p>La plateforme de recrutement fiable en Côte d’Ivoire.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>À propos de ViRecrut</h2>
+            <p>ViRecrut est une plateforme de recrutement innovante et fiable, dédiée à la mise en relation des employeurs et des travailleurs qualifiés en Côte d'Ivoire. Nous offrons une solution simple et efficace pour les particuliers et les entreprises à la recherche de professionnels dans des secteurs variés, tels que les chauffeurs, les nounous, les employés domestiques, et bien plus encore.</p>
+        </section>
+
+        <section>
+            <h2>Inscription</h2>
+            <form action="/submit" method="POST">
+                <fieldset>
+                    <legend>Informations personnelles</legend>
+
+                    <label for="nom">Nom complet :</label>
+                    <input type="text" id="nom" name="nom" value="Votre Nom" required>
+
+                    <label for="email">Adresse email :</label>
+                    <input type="email" id="email" name="email" value="duezanjunior11@gmail.com" required>
+
+                    <label for="telephone">Numéro de téléphone :</label>
+                    <input type="tel" id="telephone" name="telephone" value="+2250586029801" required>
+
+                    <label for="adresse">Adresse :</label>
+                    <input type="text" id="adresse" name="adresse" value="Votre Adresse" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Type d'utilisateur</legend>
+
+                    <label>
+                        <input type="radio" name="type_utilisateur" value="employeur" required>
+                        Employeur
+                    </label>
+                    <label>
+                        <input type="radio" name="type_utilisateur" value="employe" required>
+                        Employé
+                    </label>
+                </fieldset>
+
+                <fieldset id="employe-section" style="display:none;">
+                    <legend>Profil professionnel (Employé)</legend>
+
+                    <label for="competences">Compétences :</label>
+                    <textarea id="competences" name="competences" rows="4"></textarea>
+
+                    <label for="experience">Expériences :</label>
+                    <textarea id="experience" name="experience" rows="4"></textarea>
+
+                    <label for="certifications">Certifications :</label>
+                    <input type="text" id="certifications" name="certifications">
+
+                    <label for="photo">Photo :</label>
+                    <input type="file" id="photo" name="photo" accept="image/*">
+                </fieldset>
+
+                <fieldset id="employeur-section" style="display:none;">
+                    <legend>Besoin de recrutement (Employeur)</legend>
+
+                    <label for="description">Description des besoins :</label>
+                    <textarea id="description" name="description" rows="4"></textarea>
+
+                    <label for="categorie">Catégorie recherchée :</label>
+                    <select id="categorie" name="categorie">
+                        <option value="chauffeur">Chauffeur</option>
+                        <option value="nounou">Nounou</option>
+                        <option value="domestique">Employé domestique</option>
+                    </select>
+                </fieldset>
+
+                <button type="submit">S'inscrire</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ViRecrut. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        const employeRadio = document.querySelector('input[value="employe"]');
+        const employeurRadio = document.querySelector('input[value="employeur"]');
+        const employeSection = document.getElementById('employe-section');
+        const employeurSection = document.getElementById('employeur-section');
+
+        employeRadio.addEventListener('change', () => {
+            employeSection.style.display = 'block';
+            employeurSection.style.display = 'none';
+        });
+
+        employeurRadio.addEventListener('change', () => {
+            employeSection.style.display = 'none';
+            employeurSection.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
